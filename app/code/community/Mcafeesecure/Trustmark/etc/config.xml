@@ -18,6 +18,24 @@
                 <class>Mcafeesecure_Trustmark_Helper</class>
             </Mcafeesecure_Trustmark>
         </helpers>
+
+        <models>
+            <Mcafeesecure_Trustmark_Model>
+                <class>Mcafeesecure_Trustmark_Model</class>
+            </Mcafeesecure_Trustmark_Model>
+        </models>
+
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <sip_observer>
+                        <type>singleton</type>
+                        <class>Mcafeesecure_Trustmark_Model_Observer</class>
+                        <method>sip</method>
+                    </sip_observer>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
     </global>
 
     <frontend>

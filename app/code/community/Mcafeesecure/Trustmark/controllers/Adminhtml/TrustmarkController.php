@@ -8,7 +8,8 @@ class Mcafeesecure_Trustmark_Adminhtml_TrustmarkController extends Mage_Adminhtm
 {
     public function indexAction()
     {
-        $this->loadLayout();
-        $this->renderLayout();
+      Mage::log("Aloha!!!!", null, "magento1.log");
+      $this->loadLayout();
+      $this->renderLayout();
     }
 }
