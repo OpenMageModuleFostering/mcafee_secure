@@ -1,10 +1,9 @@
 {
     "name": "OpenMageModuleFostering/McAfee_SECURE",
     "type": "magento-module",
-    "license": "GPLv2-or-later",
+    "license": "-GPLv2-or-later",
     "homepage": "",
-    "description": "McAfee SECURE certification gives visitors the confidence they need to buy by certifying your site as safe.
-",
+    "description": "McAfee SECURE certification gives visitors the confidence they need to buy by certifying your site as safe.",
     "authors": [
     {
         "name": "McAfee SECURE",

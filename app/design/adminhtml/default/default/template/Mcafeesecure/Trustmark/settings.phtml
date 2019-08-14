@@ -13,8 +13,6 @@ $email = $user->getUser()->getEmail();;
 $source = "magento";
 $endpoint = "https://www.mcafeesecure.com";
 
-Mage::log("HELLO THERE!");
-
 ?>
 
 <div id="iframe-container">
@@ -48,7 +46,7 @@ Mage::log("HELLO THERE!");
     })
 
 
-		$iframe.attr("src", "<?php echo $endpoint; ?>/app/partner2/dashboard?form=login&aff=<?php echo $affiliate; ?>&source=<?php echo $partner; ?>&partner=<?php echo $partner; ?>&email=<?php echo $email; ?>&host=<?php echo $host; ?>");
+		$iframe.attr("src", "<?php echo $endpoint; ?>/app/partner2/dashboard?form=login&aff=<?php echo $affiliate; ?>&platform=6&source=<?php echo $partner; ?>&partner=<?php echo $partner; ?>&email=<?php echo $email; ?>&host=<?php echo $host; ?>");
 		$iframeContainer.html($iframe);
 	}
 
