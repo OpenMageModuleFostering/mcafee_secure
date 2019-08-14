@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mcafeesecure_Trustmark>
+            <version>1.0.0.0.1</version>
+        </Mcafeesecure_Trustmark>
+    </modules>
+
+    <global>
+        <blocks>
+            <Mcafeesecure_Trustmark>
+                <class>Mcafeesecure_Trustmark_Block</class>
+            </Mcafeesecure_Trustmark>
+        </blocks>
+
+        <helpers>
+            <Mcafeesecure_Trustmark>
+                <class>Mcafeesecure_Trustmark_Helper</class>
+            </Mcafeesecure_Trustmark>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <Mcafeesecure_Trustmark>
+                    <file>Mcafeesecure_Trustmark.xml</file>
+                </Mcafeesecure_Trustmark>
+            </updates>
+        </layout>
+    </frontend>
+
+    <admin>
+        <routers>
+            <Mcafeesecure_Trustmark>
+                <use>admin</use>
+                <args>
+                    <module>Mcafeesecure_Trustmark</module>
+                    <frontName>Mcafeesecure_Trustmark</frontName>
+                </args>
+            </Mcafeesecure_Trustmark>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <Mcafeesecure_Trustmark>
+                    <file>Mcafeesecure_Trustmark.xml</file>
+                </Mcafeesecure_Trustmark>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

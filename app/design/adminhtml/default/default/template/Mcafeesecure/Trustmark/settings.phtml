@@ -1,0 +1,64 @@
+<?php
+
+$host = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+$assets = "";
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'Mcafeesecure/Trustmark/';
+$jsUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS) . 'Mcafeesecure/Trustmark/';
+$adminJsUrl = $jsUrl . 'admin.js';
+$jqueryUrl = $jsUrl . 'jquery-2.1.4.min.js';
+$affiliate = "234318";
+$partner = "magento";
+$user = Mage::getSingleton('admin/session');
+$email = $user->getUser()->getEmail();;
+$source = "magento";
+$endpoint = "https://www.mcafeesecure.com";
+?>
+
+<div id="mcafeesecure" data-host="<?php echo $host ?>"></div>
+<div id="iframe-container">
+
+</div>
+
+<script src="<?php echo $jqueryUrl; ?>"></script>
+<script>
+    var $j = jQuery.noConflict();
+
+    $j(document).ready(function() {
+        loadPage();
+    });
+
+    function loadPage() {
+        var host = $j('#mcafeesecure').attr('data-host');
+        var $iframeContainer = $j('#iframe-container');
+
+        $j.getJSON('<?php echo $endpoint; ?>/rpc/ajax?do=lookup-site-status&jsoncallback=?&rand='+new Date().getTime()+'&host=' + encodeURIComponent(host),function(data) {
+            console.log('mfes lookup ' + host + ' is ' + data.status);
+            $j('#mfes-loading').hide();
+
+            var $iframe = $j("<iframe></iframe>");
+            $iframe.attr({
+                "width": "100%",
+                "height": "400px",
+                "seamless": true,
+                "scrolling": "no",
+                "frameborder": "0"
+            });
+
+
+            if(data.status == 'none') {
+                $iframe.attr("src", "<?php echo $endpoint; ?>/app/partner1/dashboard?form=signup&aff=<?php echo $affiliate; ?>&partner=<?php echo $partner; ?>&host=<?php echo $host; ?>");
+            } else {
+                $iframe.attr("src", "<?php echo $endpoint; ?>/app/partner1/dashboard?form=login&aff=<?php echo $affiliate; ?>&partner=<?php echo $partner; ?>&email=<?php echo $email; ?>&host=<?php echo $host; ?>");
+            }
+
+            $iframeContainer.html($iframe);
+        });
+    }
+    //-----------------------------------------------------------------------------------------------------------------
+    function save_active() {
+        var url = document.location + '&active=1';
+        $j.get(url);
+    }
+    //-----------------------------------------------------------------------------------------------------------------
+
+</script>

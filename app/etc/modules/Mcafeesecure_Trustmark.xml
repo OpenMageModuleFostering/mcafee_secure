@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mcafeesecure_Trustmark>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
+        </Mcafeesecure_Trustmark>
+    </modules>
+</config>
